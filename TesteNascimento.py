@@ -18,10 +18,11 @@ def olharLista():
 def pesquisar_aluno(nome):
     with open('TesteNasci.json', 'r') as prox:
         verLista = json.load(prox)
-        for aluno in verLista:
-            if nome == aluno['Nome']:
-                print(f"A idade do aluno {nome} com a Idade de {aluno['Idade']} nascido no ano de {aluno['Nasciemnto']}")
-            return
+    for aluno in verLista:
+        if nome == aluno['Nome']:
+            print(f"A idade do aluno {nome} com a Idade de {aluno['Idade']} nascido no ano de {aluno['Nasciemnto']}")
+            break
+    else:
         print(f"O aluno {nome} não foi encontrado.")
 
 while opc != 'term':
