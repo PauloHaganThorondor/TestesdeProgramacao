@@ -15,12 +15,22 @@ def olharLista():
             verLista = json.load(prox)
         print(verLista)
 
+def pesquisar_aluno(nome):
+    with open('TesteNasci.json', 'r') as prox:
+        verLista = json.load(prox)
+        for aluno in verLista:
+            if nome == aluno['Nome']:
+                print(f"A idade do aluno {nome} com a Idade de {aluno['Idade']} nascido no ano de {aluno['Nasciemnto']}")
+            return
+        print(f"O aluno {nome} não foi encontrado.")
+
 while opc != 'term':
     opc = input('''
     Você deseja ver lista ou adicionar algo a lista ou sair?
     Selecione:
     add para Adicionar
     ver para Ver Lista de Adicionados 
+    pesq para Pesquisar Aluno
     term para Terminar
     Escolha aqui: 
     ''')
@@ -28,13 +38,8 @@ while opc != 'term':
         adicionarAluno()
     elif opc == 'ver':
         olharLista()
-
+    elif opc == 'pesq':
+        nome_pesquisar = input("Digite o nome do aluno que deseja pesquisar: ")
+        pesquisar_aluno(nome_pesquisar)
     else:
         print('Opção digita não é a correta')
-    '''veri = input('Deseja Verificar se aluno está cadastrado? s ou n:')
-    if veri == 's':
-        with open('TesteNasci.json', 'r') as prox:
-            verLista = json.load(prox)
-        nomepes = input('Nome do Aluno para ser pesquisado: ')
-         if nomepes == verLista.appendd(dict(Nome)):
-            print(verLista)'''
